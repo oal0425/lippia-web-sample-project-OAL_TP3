@@ -7,7 +7,7 @@ import lippia.web.services.SuperiorBarNavigationBarService;
 
 public class ShopSteps extends PageSteps {
 
-    @Given("The client is in google page")
+    @Given("The client is on testing page")
     public void home() {
         SuperiorBarNavigationBarService.navegarWeb();
     }
@@ -21,4 +21,56 @@ public class ShopSteps extends PageSteps {
     public void theClientSee(  ) {
         ShopService.verifyPage();
     }
+
+
+
+    @And("The client sort by Average ratings in Default sorting dropdown")
+    public void theClientTapDefaultSorting(){
+        ShopService.tapDefaultSorting();
+    }
+
+    @Then( "The client taps on Android Category" )
+    public void theClientTapOnAndroidCategory(  ) {
+        ShopService.tapAndroidCategory();
+    }
+
+    @Then( "The client sees Default Sorting" )
+    public void theClientSeeDefaultSorting(  ) {
+        ShopService.verifyPageDefaultSorting();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -18,4 +18,9 @@ public class SuperiorBarNavigationBarService extends ActionManager {
     public static void tapMenu( ) {
         WebActionManager.click( SHOP_MENU_BUTTON );
     }
+
+    public static void tapAccount( ) {
+        WebActionManager.click( ACCOUNT_MENU_BUTTON );
+    }
+
 }
