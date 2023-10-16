@@ -25,13 +25,13 @@ public class MyAccountConstants {
 
     public static final String ORDER_DETAILS_XPATH = "xpath://*[@id='page-36']/div/div[1]/div";
     //*[@id="page-36"]/div/div[1]/div
-    public static final String REGISTER_ERROR_MESSAGE_XPATH = "xpath://*[@id='page-36']/div/div[1]/ul";
+    public static final String REGISTER_ERROR_MESSAGE_XPATH = "xpath://*[contains(text(), 'Please provide a valid email address')]";
 
     public static final String DASHBOARD_TEXT_XPATH = "xpath://*[@id='page-36']/div/div[1]/div/p[1]";
 
     public static final String ORDERS_DETAILS_MIN_XPATH = "xpath://*[@id='page-36']/div/div[1]/div/table";
 
-
+    public static final String DASHBOARD_REGISTRATION_MESSAGE_XPATH = "xpath://*[contains(text(), 'From your account dashboard you can view your')]";
 
 
 }

@@ -33,11 +33,11 @@ public class MyAccountService {
 
     public static void enterLoginUser(String text) {
         setInput(MyAccountConstants.INPUT_USERNAME_XPATH, text);
-    } //CAMBIAR LAS CONSTANTES
+    }
 
     public static void enterLoginPassword(String text) {
         setInput(MyAccountConstants.INPUT_PASSWORD_LOGIN_XPATH, text);
-    } //CAMBIAR LAS CONSTANTES
+    }
 
     public static void enterIncorrectLoginUser(String text) {
         setInput(MyAccountConstants.INPUT_USERNAME_XPATH, text);
@@ -52,12 +52,13 @@ public class MyAccountService {
     }
 
     public static void enterEmail(String text) {
-        setInput(MyAccountConstants.INPUT_EMAIL_XPATH, text);
-    } //CAMBIAR LAS CONSTANTES
+        int i = (int) (Math.random() * 50 + 1);
+        setInput(MyAccountConstants.INPUT_EMAIL_XPATH, i+text);
+    }
 
 
     public static void verifyRegistrationError() {
-        Assert.assertTrue( ActionManager.waitPresence(REGISTER_ERROR_MESSAGE_XPATH).isDisplayed() );
+        Assert.assertTrue(ActionManager.isPresent(REGISTER_ERROR_MESSAGE_XPATH));
     }
 
     public static void verifyRegistrationSuccess() {
@@ -65,16 +66,7 @@ public class MyAccountService {
     }
 
 
-    public static void verifyDashboard() {
-        Assert.assertTrue( ActionManager.waitPresence(DASHBOARD_LINK_XPATH).isDisplayed() );
-    }
-
-    public static void verifyOrders() {
-        Assert.assertTrue( ActionManager.waitPresence(ORDERS_INF_XPATH).isDisplayed() );
-    }
-
     public static void verifyOrderDetailsViewExisting() {
-        MyAccountService.clickViewButton();
         Assert.assertTrue( ActionManager.waitPresence(ORDER_DETAILS_XPATH).isDisplayed() );
     }
 
@@ -85,5 +77,18 @@ public class MyAccountService {
 
     public static void verifyOrderDetailsView() {
         Assert.assertTrue(ActionManager.waitPresence(ORDERS_DETAILS_MIN_XPATH).isDisplayed());
+    }
+
+
+    public static void verifyDashboardMessage() {
+        Assert.assertTrue(ActionManager.isPresent(DASHBOARD_REGISTRATION_MESSAGE_XPATH));
+    }
+
+    public static void enterEmptyEmail(String text) {
+        setInput(MyAccountConstants.INPUT_EMAIL_XPATH, text);
+    }
+
+    public static void enterInvalidEmail(String email) {
+        setInput(MyAccountConstants.INPUT_EMAIL_XPATH, email);
     }
 }

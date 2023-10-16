@@ -100,7 +100,7 @@ public class MyAccountSteps extends PageSteps {
     // MyAccount Steps
     @And("Click view button")
     public void clickViewButton() {
-
+        MyAccountService.clickViewButton();
     }
 
     @Then("User must view their orders")
@@ -111,5 +111,48 @@ public class MyAccountSteps extends PageSteps {
     @Then("User must view his Orders, Customer and Billing details")
     public void userMustViewHisOrdersCustomerAndBillingDetails() {
         MyAccountService.verifyOrderDetailsViewExisting();
+    }
+
+
+    //My Account Registration
+
+    @And("The client enters an email {}")
+    public void theClientEntersRegisteredEmail(String email) {
+        MyAccountService.enterEmail(email);
+    }
+
+
+    @And("The client enters is own password {}")
+    public void theClientEntersIsOwnPassword(String password) {
+        MyAccountService.enterRegistrationPassword(password);
+    }
+
+
+    @And("The client clicks on Register button")
+    public void theClientClicksOnRegisterButton() {
+        MyAccountService.clickRegisterButton();
+    }
+
+    @Then("The client will be registered successfully")
+    public void theClientWillBeRegisteredSuccessfully() {
+        MyAccountService.verifyDashboardMessage();
+    }
+
+
+    @And("The client enters an empty email {}")
+    public void theClientEntersAnEmptyEmail(String email) {
+        MyAccountService.enterEmptyEmail("");
+    }
+
+    @Then("Registration fails")
+    public void registrationFails() {
+        MyAccountService.verifyRegistrationError();
+
+    }
+
+
+    @And("The client enters an invalid email {}")
+    public void theClientEntersAnInvalidEmail(String email) {
+        MyAccountService.enterInvalidEmail(email);
     }
 }
