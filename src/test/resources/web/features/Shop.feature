@@ -24,7 +24,7 @@ Feature: As a potential client i need to do several operations on shop tab
 
 
   @Shop2
-  Scenario: Shop-Add to Basket-View Basket-Tax Functionality
+  Scenario Outline: Shop-Add to Basket-View Basket-Tax Functionality
     And click on the add to basket button
     And check Book in the Menu Item
     And click on Item link
@@ -32,4 +32,8 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
+    And user select his country <country>
     Then Tax rate for indian should be two percent and for abroad it should be five percent
+  Examples:
+    | country |
+    | India   |

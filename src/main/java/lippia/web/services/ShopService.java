@@ -129,4 +129,11 @@ public class ShopService {
 
 
     }
+
+    public static void userFillCountryDetails(String country) {
+        ActionManager.click(COUNTRY_DROP_XPATH);
+        ActionManager.setInput(COUNTRY_DROP_INPUT_SEARCH_XPATH, country);
+        WebElement elemento= WebActionManager.getElement(COUNTRY_DROP_XPATH);
+        elemento.sendKeys(Keys.ENTER);
+    }
 }

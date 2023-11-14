@@ -26,8 +26,9 @@ Feature: As a potential client i need to log me in on the website
     Then general webpage must be visible
 
     Examples:
-      | username            | password    | mensaje
-      | crazylife@gmail.com | C3r0P1n0Cho | Error: incorrect username/password.
-      | CRAZYLIFE@gmail.com | C3R0P1N0CHO | Error: incorrect username/password.
-      |                     | C3R0P1N0CHO | Error: incorrect username/password.
-      | CRAZYLIFE@gmail.com |             | Error: incorrect username/password.
+      | username            | password    | mensaje                             |
+      | crazy               | C3r0P1n0Cho | Error: incorrect username/password. |
+      | CRAZYLIFE@gmail.com | C3R0P1N0CHO | Error: incorrect username/password. |
+      |                     | C3R0P1N0CHO | Error: incorrect username/password. |
+      | CRAZYLIFE@gmail.com |             | Error: incorrect username/password. |
+      | crazylife@gmail.com | C3r0P1n0Cho | Success                             |

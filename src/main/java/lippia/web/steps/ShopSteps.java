@@ -87,6 +87,11 @@ public class ShopSteps extends PageSteps {
 
     }
 
+    @And("user select his country {}")
+    public void userSelectHisCountry(String country) {
+        ShopService.userFillCountryDetails(country);
+    }
+
 
     //..endregion
 
