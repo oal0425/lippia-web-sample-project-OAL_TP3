@@ -5,12 +5,16 @@ import com.crowdar.core.actions.WebActionManager;
 import lippia.web.constants.MyAccountConstants;
 import lippia.web.constants.ShopConstants;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import javax.swing.*;
 import java.util.List;
 
 import static com.crowdar.core.actions.ActionManager.setInput;
+import static java.lang.Float.parseFloat;
 import static lippia.web.constants.SuperiorNavigationBarConstants.*;
 import static lippia.web.constants.ShopConstants.*;
 
@@ -36,7 +40,7 @@ public class ShopService {
     }
 
     public static void verifyTotalSubtotalValues() {
-        Assert.assertTrue((ActionManager.waitPresence(SUBTOTAL_VALUE_TEXT).isDisplayed()) && (ActionManager.waitPresence(TOTAL_VALUE_TEXT).isDisplayed()));
+        Assert.assertTrue((ActionManager.waitPresence(SUBTOTAL_VALUE_TEXT_ITEM_VIEW).isDisplayed()) && (ActionManager.waitPresence(TOTAL_VALUE_TEXT_ITEM_VIEW).isDisplayed()));
     }
 
     public static String removefirstChar(String str)
@@ -47,9 +51,11 @@ public class ShopService {
         return str.substring(1);
     }
     public static void verifyTotalSubtotalAmount() {
-        String subTotal = ActionManager.getElement(SUBTOTAL_VALUE_NUM).getText();
-        String total = ActionManager.getElement(TOTAL_VALUE_NUM).getText();
-        Assert.assertTrue(total.compareTo(subTotal)<0);
+        String subTotal = ActionManager.getElement(SUBTOTAL_VALUE_TEXT_ITEM_VIEW).getText();
+        String total = ActionManager.getElement(TOTAL_VALUE_TEXT_ITEM_VIEW).getText();
+        Float subTotalNum = parseFloat(subTotal.substring(1,subTotal.length()));
+        Float totalNum = parseFloat(total.substring(1,total.length()));
+        Assert.assertTrue(totalNum>subTotalNum);
     }
 
     public static void clickCheckOutBtn() {
@@ -67,15 +73,22 @@ public class ShopService {
         setInput(ShopConstants.INPUT_COMPANYNAME_BILLING_DETAIL_XPATH, datos[2]);
         setInput(ShopConstants.INPUT_EMAIL_BILLING_DETAIL_XPATH, datos[3]);
         setInput(ShopConstants.INPUT_PHONE_BILLING_DETAIL_XPATH, datos[4]);
-        setInput(ShopConstants.INPUT_ADDRESS_BILLING_DETAIL_XPATH, datos[5]);
-        setInput(ShopConstants.INPUT_TOWN_BILLING_DETAIL_XPATH, datos[6]);
-        setInput(ShopConstants.INPUT_POSTCODE_BILLING_DETAIL_XPATH, datos[7]);
-        //setInput(ShopConstants.INPUT_COUNTRY_BILLING_DETAIL_XPATH, datos[5]);
-        //setInput(ShopConstants.INPUT_STATE_BILLING_DETAIL_XPATH, datos[8]);
+        ActionManager.click(COUNTRY_DROP_XPATH);
+        ActionManager.setInput(COUNTRY_DROP_INPUT_SEARCH_XPATH, datos[5]);
+        WebElement elemento= WebActionManager.getElement(COUNTRY_DROP_XPATH);
+        elemento.sendKeys(Keys.ENTER);
+        Assert.assertTrue(WebActionManager.waitPresence(STATE_DROP_XPATH).isSelected());
+        setInput(ShopConstants.INPUT_ADDRESS_BILLING_DETAIL_XPATH, datos[6]);
+        setInput(ShopConstants.INPUT_TOWN_BILLING_DETAIL_XPATH, datos[7]);
+        ActionManager.click(STATE_DROP_XPATH);
+        setInput(STATE_DROP_INPUT_SEARCH_XPATH, datos[8]);
+        setInput(ShopConstants.INPUT_POSTCODE_BILLING_DETAIL_XPATH, datos[9]);
+
     }
 
     public static void paymentGatewaySelectionCheque() {
         WebActionManager.click(PAYMENT_METHOD_CHEQUE);
+        Assert.assertTrue(WebActionManager.waitPresence(PLACE_ORDER_XPATH).isDisplayed());
     }
 
     public static void paymentGatewaySelectionBacs() {
@@ -95,5 +108,25 @@ public class ShopService {
 
     public static void verifyConfirmationPage() {
         Assert.assertTrue(ActionManager.waitPresence(CONFIRMATION_PAGE).isDisplayed());
+    }
+
+    public static void calculateTaxRate() {
+        String subTotal = ActionManager.getElement(SUBTOTAL_VALUE_TEXT_BILLING_VIEW).getText();
+        String total = ActionManager.getElement(TOTAL_VALUE_TEXT_BILLING_VIEW).getText();
+        Float subTotalNum = parseFloat((subTotal.substring(1,subTotal.length())));
+        Float totalNum = parseFloat((total.substring(1,total.length())));
+        int num;
+        if (ActionManager.getElement(BILLING_COUNTRY_XPATH).getText().equals("India")){
+            num = 2;
+            Float tax = (subTotalNum * num) / 100;
+            Assert.assertTrue((subTotalNum+tax) == totalNum);
+        }
+        else{
+            num = 5;
+            Float tax = (subTotalNum * num) / 100;
+            Assert.assertTrue((subTotalNum+tax) == totalNum);
+        }
+
+
     }
 }

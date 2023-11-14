@@ -7,21 +7,21 @@ Feature: Register
 
 
   @Registration1
-  Scenario Outline: Registration with Empty Email
-    And The client enters an empty email <email>
-    And The client enters is own password <password>
+  Scenario Outline: Registration with empty password
+    And The client enters a valid email <email>
+    And The client enters an empty password <password>
     And The client clicks on Register button
     Then Registration fails
     Examples:
-      |email			| password			|
-      |				|C3r0P1n0Cho		|
+      | email               | password |
+      | crazylife@gmail.com |          |
 
   @Registration2
-  Scenario Outline: Registration with Empty Email
+  Scenario Outline: Registration with Empty Email and password
     And The client enters an empty email <email>
     And The client enters an empty password <password>
     And The client clicks on Register button
-    And Registration fails
+    And Registration fails email
     Then Empty password error <mensaje>
     Examples:
       | email | password | mensaje

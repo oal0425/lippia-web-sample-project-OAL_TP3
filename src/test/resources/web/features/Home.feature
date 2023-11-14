@@ -6,7 +6,7 @@ Feature: As a potential client i need to do several operations on shop tab
     When The client tap on Shop menu
 
   @Home1
-  Scenario Outline: f
+  Scenario Outline: Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway
     And The client tap on Home menu
     And The client see Three Arrivals
     And The client enter to an Arrival
@@ -18,14 +18,14 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
-    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<address>,<town>,<postcode>
+    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<country>, <address>,<town>, <state>,<postcode>
     Then can opt any payment in the payment gateway
     Examples:
-      | firstName | lastName | companyName | email           | phone         |  | address | town      |  | postcode |
-      | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 |  | Cucuy   | Carpinchi |  | 1200     |
+      | firstName | lastName | companyName | email           | phone         | country   | address | town      | state | postcode |
+      | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 | Argentina | Cucuy   | Carpinchi | Chaco | 1200     |
 
   @Home2
-  Scenario Outline:
+  Scenario Outline: Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway-Place order
     And The client tap on Home menu
     And The client see Three Arrivals
     And The client enter to an Arrival
@@ -37,10 +37,10 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
-    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<address>,<town>,<postcode>
+    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<country>, <address>,<town>, <state>,<postcode>
     And can opt any payment in the payment gateway
     And click on Place Order button
     Then user navigates to Order confirmation page
     Examples:
-      | firstName | lastName | companyName | email           | phone         |  | address | town      |  | postcode |
-      | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 |  | Cucuy   | Carpinchi |  | 1200     |
+      | firstName | lastName | companyName | email           | phone         | country   | address | town      | state | postcode |
+      | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 | Argentina | Cucuy   | Carpinchi | Chaco | 1200     |

@@ -5,13 +5,13 @@ public class ShopConstants {
 
     public static final String MENU_CART_AMOUNT ="xpath://*[@id='wpmenucartli']/a/span[2]";
 
-    public static final String TOTAL_VALUE_TEXT="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[1]/th";
+    public static final String TOTAL_VALUE_TEXT_ITEM_VIEW="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[3]/td/strong";
 
-    public static final String SUBTOTAL_VALUE_TEXT="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[3]/th";
+    public static final String SUBTOTAL_VALUE_TEXT_ITEM_VIEW="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[1]/td";
 
-    public static final String TOTAL_VALUE_NUM="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[1]/th";
+    public static final String TOTAL_VALUE_TEXT_BILLING_VIEW="xpath://*[@id='order_review']/table/tfoot/tr[3]/td/strong/span";
 
-    public static final String SUBTOTAL_VALUE_NUM="xpath://*[@id='page-34']/div/div[1]/div/div/table/tbody/tr[3]/td/strong/span";
+    public static final String SUBTOTAL_VALUE_TEXT_BILLING_VIEW="xpath://*[@id='order_review']/table/tfoot/tr[1]/td/span";
 
     public static final String CUSTOMER_DETAILS_CONTAINER ="xpath://*[@id='customer_details']";
 
@@ -47,12 +47,19 @@ public class ShopConstants {
 
     public static final String CONFIRMATION_PAGE ="xpath://*[@id='page-35']/div/div[1]";
 
+    public static final String BILLING_COUNTRY_XPATH ="xpath://*[@id='select2-chosen-1']";
+
+    public static final String COUNTRY_DROP_XPATH ="xpath://*[@id='select2-chosen-1']";
+
+    public static final String COUNTRY_DROP_INPUT_SEARCH_XPATH ="xpath://*[@id='s2id_autogen1_search']";
+
+    public static final String STATE_DROP_XPATH ="xpath://*[@id='select2-chosen-2']";
+
+    public static final String STATE_DROP_INPUT_SEARCH_XPATH ="xpath://*[@id='s2id_autogen2_search']";
 
 
 
-
-
-
+    public static final String PLACE_ORDER_XPATH ="xpath://*[@id='place_order']";
 
 
 }

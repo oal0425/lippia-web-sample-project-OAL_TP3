@@ -60,9 +60,9 @@ public class ShopSteps extends PageSteps {
     }
 
 
-    @And("user can fill his details in billing details {},{},{},{},{},{},{},{}")
-    public void userFillHisBillingDetails(String fname, String lname, String companyname, String email, String phone, String address, String town, String postcode) {
-        String [] campos = {fname,lname,companyname,email,phone,address,town,postcode};
+    @And("user can fill his details in billing details {},{},{},{},{},{},{},{},{},{}")
+    public void userFillHisBillingDetails(String fname, String lname, String companyname, String email, String phone,String country, String address, String town, String state, String postcode) {
+        String [] campos = {fname,lname,companyname,email,phone,country,address,town,state,postcode};
         ShopService.userFillBillingDetails(campos);
     }
 
@@ -79,6 +79,12 @@ public class ShopSteps extends PageSteps {
     @Then("user navigates to Order confirmation page")
     public void userNavigatesToOrderConfirmationPage() {
         ShopService.verifyConfirmationPage();
+    }
+
+    @Then("Tax rate for indian should be two percent and for abroad it should be five percent")
+    public void taxRateIndianDifferentAbroad() {
+        ShopService.calculateTaxRate();
+
     }
 
 

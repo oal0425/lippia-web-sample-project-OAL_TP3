@@ -14,13 +14,13 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
-    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<address>,<town>,<postcode>
+    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<country>, <address>,<town>, <state>,<postcode>
     And can opt any payment in the payment gateway
     And click on Place Order button
     Then user navigates to Order confirmation page
-  Examples:
-    | firstName | lastName | companyName | email           | phone         |  | address | town      |  | postcode |
-    | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 |  | Cucuy   | Carpinchi |  | 1200     |
+    Examples:
+      | firstName | lastName | companyName | email           | phone         | country   | address | town      | state | postcode |
+      | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 | Argentina | Cucuy   | Carpinchi | Chaco | 1200     |
 
 
   @Shop2
@@ -32,4 +32,4 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
-    And total is always major subtotal
+    Then Tax rate for indian should be two percent and for abroad it should be five percent

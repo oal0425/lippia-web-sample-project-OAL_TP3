@@ -6,26 +6,28 @@ Feature: As a potential client i need to log me in on the website
     When The client taps on My Account menu
 
   @Login1
-  Scenario Outline: Log-in with correct username and empty password
+  Scenario Outline: Login-Handles case sensitive
     And Enter case changed username <username>
     And Enter case changed password <password>
     And Click on login button
-    Then Empty password error <mensaje>
-    And prompt to enter login again
+    Then Login must fail saying <mensaje>
     Examples:
       | username            | password    | mensaje
       | Crazylife@gmail.com | c3r0P1n0Cho | Error: incorrect username/password.
+      | CRAZYLIFE@gmail.com | C3R0P1N0CHO |Error: incorrect username/password.
 
   @Login2
-  Scenario Outline: Log-in with correct username and empty password
+  Scenario Outline: Login-Authentication
     And Enter case changed username <username>
     And Enter case changed password <password>
     And Click on login button
-    And sign out of the site
+    And Click on Logout button
     And click back button
-    And user shouldn’t be signed in to his account
     Then general webpage must be visible
 
     Examples:
       | username            | password    | mensaje
-      | Crazylife@gmail.com | c3r0P1n0Cho | Error: incorrect username/password.
+      | crazylife@gmail.com | C3r0P1n0Cho | Error: incorrect username/password.
+      | CRAZYLIFE@gmail.com | C3R0P1N0CHO | Error: incorrect username/password.
+      |                     | C3R0P1N0CHO | Error: incorrect username/password.
+      | CRAZYLIFE@gmail.com |             | Error: incorrect username/password.
