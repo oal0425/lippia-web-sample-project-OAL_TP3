@@ -1,12 +1,10 @@
 @MyAccount @All
-Feature: As a potential client i need to filter the products by price
-
+Feature: As a potential client i need to see my account information
   Background:
     Given The client is on testing page
     When The client taps on My Account menu
-
   @MyAccount1
-  Scenario Outline: My Account Orders, Customer and Billing details
+  Scenario Outline: My Account Orders Customer and Billing details
     And Enter a registered username <username>
     And Enter a registered password <password>
     And Click on login button
@@ -17,8 +15,6 @@ Feature: As a potential client i need to filter the products by price
     Examples:
       | username            | password    |  |
       | crazylife@gmail.com | C3r0P1n0Cho |  |
-
-
   @MyAccount2
   Scenario Outline: My Account Orders, Customer and Billing details
     And Enter a registered username <username>

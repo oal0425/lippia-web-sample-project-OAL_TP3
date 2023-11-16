@@ -28,11 +28,6 @@ public class MyAccountService {
         setInput(MyAccountConstants.INPUT_EMAIL_XPATH, text);
     }
 
-    public static void enterInvalidEmail(String email) {
-        setInput(MyAccountConstants.INPUT_EMAIL_XPATH, email);
-    }
-
-
     public static void verifyDashboardText() {
         Assert.assertTrue(ActionManager.waitPresence(DASHBOARD_TEXT_XPATH).isDisplayed());
     }

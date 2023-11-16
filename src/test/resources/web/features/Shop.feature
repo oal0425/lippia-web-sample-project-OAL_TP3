@@ -1,12 +1,10 @@
 @Shop @All
-Feature: As a potential client i need to do several operations on shop tab
-
+Feature:As a potential client i need to do several operations on shop tab
   Background:
     Given The client is on testing page
     When The client tap on Shop menu
-
   @Shop1
-  Scenario Outline: Shop-Add to Basket-View Basket through Item link
+  Scenario Outline: Shop Add to Basket View Basket through Item link
     And click on the add to basket button
     And check Book in the Menu Item
     And click on Item link
@@ -21,10 +19,8 @@ Feature: As a potential client i need to do several operations on shop tab
     Examples:
       | firstName | lastName | companyName | email           | phone         | country   | address | town      | state | postcode |
       | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 | Argentina | Cucuy   | Carpinchi | Chaco | 1200     |
-
-
   @Shop2
-  Scenario Outline: Shop-Add to Basket-View Basket-Tax Functionality
+  Scenario Outline: Shop Add to Basket View Basket Tax Functionality
     And click on the add to basket button
     And check Book in the Menu Item
     And click on Item link
@@ -33,7 +29,7 @@ Feature: As a potential client i need to do several operations on shop tab
     And click on Proceed to Check out button
     And  User can view billing details
     And user select his country <country>
-    Then Tax rate for indian should be two percent and for abroad it should be five percent
+    Then Tax rate for indian should be two percent and for abroad it should be five percent <country>
   Examples:
     | country |
     | India   |

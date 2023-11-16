@@ -1,13 +1,15 @@
 package lippia.web.steps;
 
 import com.crowdar.core.PageSteps;
+import com.crowdar.core.actions.ActionManager;
+import com.crowdar.core.actions.WebActionManager;
+import com.crowdar.driver.DriverManager;
 import io.cucumber.java.en.*;
 import lippia.web.services.ShopService;
 import lippia.web.services.SuperiorBarNavigationBarService;
+import org.testng.Assert;
 
-
-
-
+import static lippia.web.constants.ShopConstants.YOUR_ORDER_PRODUCT_XPATH;
 
 
 public class ShopSteps extends PageSteps {
@@ -81,22 +83,17 @@ public class ShopSteps extends PageSteps {
         ShopService.verifyConfirmationPage();
     }
 
-    @Then("Tax rate for indian should be two percent and for abroad it should be five percent")
-    public void taxRateIndianDifferentAbroad() {
-        ShopService.calculateTaxRate();
+    @Then("Tax rate for indian should be two percent and for abroad it should be five percent {}")
+    public void taxRateIndianDifferentAbroad(String country) {
+        ShopService.calculateTaxRate(country);
 
     }
 
     @And("user select his country {}")
     public void userSelectHisCountry(String country) {
         ShopService.userFillCountryDetails(country);
+        Assert.assertTrue(ActionManager.waitPresence(YOUR_ORDER_PRODUCT_XPATH).isDisplayed());
+
     }
-
-
-    //..endregion
-
-
-    //region
-
 
 }

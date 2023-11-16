@@ -1,12 +1,10 @@
 @Home @All
-Feature: As a potential client i need to do several operations on shop tab
-
+Feature: As a potential client i need to do several operations on Home tab
   Background:
     Given The client is on testing page
     When The client tap on Shop menu
-
   @Home1
-  Scenario Outline: Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway
+  Scenario Outline: Home Arrivals Add to Basket Items Checkout Payment Gateway
     And The client tap on Home menu
     And The client see Three Arrivals
     And The client enter to an Arrival
@@ -18,14 +16,13 @@ Feature: As a potential client i need to do several operations on shop tab
     And total is always major subtotal
     And click on Proceed to Check out button
     And  User can view billing details
-    And user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<country>, <address>,<town>, <state>,<postcode>
-    Then can opt any payment in the payment gateway
+    Then user can fill his details in billing details <firstName>,<lastName>,<companyName>,<email>,<phone>,<country>, <address>,<town>, <state>,<postcode>
+    And can opt any payment in the payment gateway
     Examples:
       | firstName | lastName | companyName | email           | phone         | country   | address | town      | state | postcode |
       | Pepito    | Clavito  | Pepito's    | pepito@mail.com | +541115015111 | Argentina | Cucuy   | Carpinchi | Chaco | 1200     |
-
   @Home2
-  Scenario Outline: Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway-Place order
+  Scenario Outline: Home Arrivals Add to Basket Items Checkout Payment GatewayPlace order
     And The client tap on Home menu
     And The client see Three Arrivals
     And The client enter to an Arrival

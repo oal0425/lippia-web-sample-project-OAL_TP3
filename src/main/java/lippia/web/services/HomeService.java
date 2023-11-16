@@ -29,10 +29,5 @@ public class HomeService {
         Actions builder = new Actions(driver);
         WebElement elem = WebActionManager.getElement(ADD_TO_BASKET_HOME);
         builder.moveToElement(elem).click().build().perform();
-
-
-
-        
-
     }
 }

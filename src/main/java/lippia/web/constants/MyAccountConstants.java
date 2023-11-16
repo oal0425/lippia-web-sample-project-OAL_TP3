@@ -4,10 +4,6 @@ public class MyAccountConstants {
 
     // Register
     public static final String REGISTER_BUTTON_XPATH = "xpath://*[@id='customer_login']/div[2]/form/p[3]/input[3]";
-
-
-
-
     public static final String LOGIN_BUTTON = "xpath://*[@id='customer_login']/div[1]/form/p[3]/input[3]";
 
     public static final String INPUT_USERNAME_XPATH = "xpath://*[@id='username']";
@@ -18,8 +14,6 @@ public class MyAccountConstants {
     public static final String DASHBOARD_TEXT_XPATH = "xpath://*[@id='page-36']/div/div[1]/div/p[1]";
 
     public static final String MY_ACCOUNT_DETAILS = "xpath://*[@id='page-36']/div/div[1]/nav/ul/li[5]/a";
-
-    public static final String VIEW_BUTTON_XPATH = "xpath://*[@id='page-36']/div/div[1]/div/table/tbody/tr/td[5]/a";
 
     public static final String MY_ACCOUNT_CONTENT = "xpath://*[@id='page-36']/div/div[1]/div";
 

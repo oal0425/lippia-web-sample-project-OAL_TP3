@@ -1,7 +1,6 @@
 package lippia.web.constants;
 
 public class ShopConstants {
-    public static final String ADD_TO_BASKET_BTN = "a[href='/shop/?add-to-cart=169']";
 
     public static final String MENU_CART_AMOUNT ="xpath://*[@id='wpmenucartli']/a/span[2]";
 
@@ -12,6 +11,8 @@ public class ShopConstants {
     public static final String TOTAL_VALUE_TEXT_BILLING_VIEW="xpath://*[@id='order_review']/table/tfoot/tr[3]/td/strong/span";
 
     public static final String SUBTOTAL_VALUE_TEXT_BILLING_VIEW="xpath://*[@id='order_review']/table/tfoot/tr[1]/td/span";
+
+    public static final String TAX_VALUE_TEXT_BILLING_VIEW="xpath://*[@id='order_review']/table/tfoot/tr[2]/td/span";
 
     public static final String CUSTOMER_DETAILS_CONTAINER ="xpath://*[@id='customer_details']";
 
@@ -25,15 +26,10 @@ public class ShopConstants {
 
     public static final String INPUT_PHONE_BILLING_DETAIL_XPATH ="xpath://*[@id='billing_phone']";
 
-    public static final String INPUT_COUNTRY_BILLING_DETAIL_XPATH ="xpath://*[@id='select2-chosen-1']";
-    //CHEQUEAR LO SELECCIONADO SINO BUSCAR LA MANERA DE ESTABLER O RECUPERAR EL VALOR //*[@id="select2-result-label-1458"]
-
     public static final String INPUT_ADDRESS_BILLING_DETAIL_XPATH ="xpath://*[@id='billing_address_1']";
 
     public static final String INPUT_TOWN_BILLING_DETAIL_XPATH ="xpath://*[@id='billing_city']";
 
-    public static final String INPUT_STATE_BILLING_DETAIL_XPATH ="xpath://*[@id='select2-chosen-2']";
-    //CHEQUEAR LO SELECCIONADO SINO BUSCAR LA MANERA DE ESTABLER O RECUPERAR EL VALOR
 
     public static final String INPUT_POSTCODE_BILLING_DETAIL_XPATH ="xpath://*[@id='billing_postcode']";
 
@@ -47,7 +43,6 @@ public class ShopConstants {
 
     public static final String CONFIRMATION_PAGE ="xpath://*[@id='page-35']/div/div[1]";
 
-    public static final String BILLING_COUNTRY_XPATH ="xpath://*[@id='select2-chosen-1']";
 
     public static final String COUNTRY_DROP_XPATH ="xpath://*[@id='select2-chosen-1']";
 
@@ -57,9 +52,7 @@ public class ShopConstants {
 
     public static final String STATE_DROP_INPUT_SEARCH_XPATH ="xpath://*[@id='s2id_autogen2_search']";
 
-
-
-    public static final String PLACE_ORDER_XPATH ="xpath://*[@id='place_order']";
+    public static final String YOUR_ORDER_PRODUCT_XPATH ="xpath://*[@id='order_review']/table/tfoot/tr[1]/th";
 
 
 }
